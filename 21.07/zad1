@@ -1,0 +1,17 @@
+a SELECT * FROM `races` WHERE type = 'tree'
+
+b SELECT * FROM `races` WHERE type = 'tree' AND sun_coef > 50
+
+c SELECT * FROM `magics` WHERE magic LIKE '%ur%' OR magic LIKE '%or%'
+
+d INSERT INTO `races`(`race`, `type`, `superpower`, `water_coef`, `sun_coef`, `population`) VALUES ('bodliv','bush','can burn',40,55,10000)
+
+INSERT INTO `races`(`race`, `type`, `superpower`, `water_coef`, `sun_coef`, `population`) VALUES ('hrast','bush','can burn',22,30,5000)
+
+e UPDATE `races` SET `population`= population + (population * 0.05) WHERE sun_coef=60
+
+f UPDATE `dlops` SET `weight`= weight + 5 WHERE gender = 'male'
+
+g UPDATE `magics` SET `date_deleted`='2015-07-21' WHERE required_experience < 35
+
+h SELECT * FROM `magics` WHERE date_deleted IS NULL
