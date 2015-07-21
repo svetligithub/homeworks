@@ -1,4 +1,4 @@
-table border=1 align="center">
+<table border=1 align="center">
 <tr>
 
 <?php
@@ -10,16 +10,19 @@ die('Connection failed: ' . mysqli_connect_error());
 //echo 'Connected Successfully <br>';
 $dlops = 'SELECT * FROM dlops';
 $result = mysqli_query($connect, $dlops);
+$delete = 'DELETE FROM `dlops` WHERE';
+$delbutton = '<input style="background-color:red;color:white;border-radius:2px" type="submit" value="delete" name="delbutton"></input>';
+$updbutton = '<input style="background-color:green;color:white;border-radius:2px" type="submit" value="update" name="delbutton"></input>';
 echo '<tr><td>N</td><td>Name</td><td>Last Name</td><td>Race</td><td>Gender</td><td>Date of Birth</td><td>Weight</td><td>Status</td><td>Status</td><td>Update</td><td>Delete</td></tr>';
 if(mysqli_num_rows($result) > 0) {
 while($row = mysqli_fetch_assoc($result)){
 
 echo '<tr><td>'.$row[id].'</td>'.'<td>'.$row[first_name].'</td>'. '<td>'.$row[last_name] . '</td>' .'<td>'. $row[race] . '</td> ' .
-'<td>'. $row[gender] . '</td>' . '<td>'. $row[date_of_birth] . '</td> ' . '<td>'. $row[weight] . '</td> ' . '<td>'.$row[status] . '</td> ' . '<td>' .$row[date_deleted] . '</td></tr>';
+'<td>'. $row[gender] . '</td>' . '<td>'. $row[date_of_birth] . '</td> ' . '<td>'. $row[weight] . '</td> ' . '<td>'.$row[status] . '</td> ' . '<td>' .$row[date_deleted] . '</td>'.'<td>'.$updbutton.'</td>'.'<td>'.$delbutton.'</td>'.'</tr>';
 
 }
 }
-echo '<tr><td colspan=11 align="center"><input type="button" name="adddlop" value="Add Dlop" style="background-color:green;color:white;border-radius:2px"></input></td></tr>';
+echo '<tr><td colspan=11 align="center"><input type="submit" name="adddlop" value="Add Dlop" style="background-color:green;color:white;border-radius:2px"></input></td></tr>';
 ?>
 
 </table>
